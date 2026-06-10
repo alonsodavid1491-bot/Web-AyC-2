@@ -1,0 +1,1479 @@
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-browser-title">Servicio Técnico y Variedades AyC | Quitirrisí de Mora</title>
+    <!-- Tailwind CSS para estilizado moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans para tipografía premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-slate-900 overflow-x-hidden">
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="sticky top-0 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 z-40 px-4 py-4 md:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo / Nombre -->
+            <a href="#inicio" class="flex items-center gap-2.5">
+                <div id="nav-brand-icon" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center font-extrabold text-white shadow-lg shadow-blue-500/20 text-lg transition-all duration-300">
+                    AyC
+                </div>
+                <div>
+                    <h1 id="nav-brand-full" class="font-extrabold text-sm md:text-base leading-tight text-white tracking-tight">Servicio Técnico y Variedades</h1>
+                    <span id="nav-brand-sub" class="text-[11px] text-cyan-400 font-bold block tracking-wider uppercase">AYC • QUITIRRISÍ</span>
+                </div>
+            </a>
+
+            <!-- Enlaces Desktop -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                <a href="#inicio" class="hover:text-cyan-400 transition-colors">Inicio</a>
+                <a href="#servicios" class="hover:text-cyan-400 transition-colors">Servicios</a>
+                <a href="#catalogo" class="hover:text-cyan-400 transition-colors">Variedades y Tienda</a>
+                <a href="#reparaciones" class="hover:text-cyan-400 transition-colors">Cotizar Reparación</a>
+                <a href="#contacto" class="hover:text-cyan-400 transition-colors">Ubicación</a>
+            </div>
+
+            <!-- Carrito Flotante de Compras & Indicador Admin -->
+            <div class="flex items-center gap-4">
+                <!-- Indicador visual de modo Administrador activo -->
+                <div id="admin-indicator" class="hidden items-center gap-1.5 px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-xs font-bold animate-pulse">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Modo Editor Activo
+                </div>
+
+                <button onclick="toggleCart()" class="relative p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all border border-slate-700" title="Ver Carrito de Compras">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-cyan-400" id="cart-icon-svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-900 hidden">0</span>
+                </button>
+                <a id="nav-whatsapp-link" href="https://wa.me/50664076254?text=Hola%20AyC,%20quisiera%20hacer%20una%20consulta." target="_blank" class="hidden sm:inline-flex bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs md:text-sm tracking-wide transition-all shadow-md shadow-blue-500/10">
+                    Escríbenos por WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN HERO -->
+    <section id="inicio" class="relative py-16 md:py-24 px-4 md:px-8 overflow-hidden bg-slate-950">
+        <div class="absolute w-96 h-96 bg-blue-600/10 rounded-full blur-3xl top-10 left-10"></div>
+        <div class="absolute w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl bottom-10 right-10" id="hero-light-decor"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center lg:text-left">
+                <span id="hero-badge" class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-bold bg-slate-800 text-cyan-400 border border-slate-700">
+                    📍 Quitirrisí de Mora, Barrio San Martín
+                </span>
+                <h2 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-white">
+                    Reparación experta de <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400" id="hero-title-gradient">Tecnología</span> y venta de artículos
+                </h2>
+                <p id="hero-subtitle" class="text-base md:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0">
+                    Revivimos tus celulares, computadoras y consolas favoritas. Además, explora nuestro catálogo de variedades y tecnología directo hasta tu hogar.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#reparaciones" id="hero-btn-primary" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-slate-950 font-extrabold py-4 px-8 rounded-2xl text-center shadow-lg shadow-blue-500/10 transition-all transform hover:-translate-y-0.5">
+                        Cotizar Reparación
+                    </a>
+                    <a href="#catalogo" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-2xl text-center transition-all border border-slate-700">
+                        Ver Variedades
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ilustración Tarjeta Soporte -->
+            <div class="relative flex justify-center">
+                <div class="w-full max-w-md bg-slate-900 border border-slate-800 shadow-2xl rounded-3xl p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 rounded-full bg-red-500"></span>
+                            <span class="w-3.5 h-3.5 rounded-full bg-yellow-500"></span>
+                            <span class="w-3.5 h-3.5 rounded-full bg-green-500"></span>
+                        </div>
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-cyan-950/40 px-2.5 py-1 rounded" id="diag-card-tag">Diagnóstico AyC</span>
+                    </div>
+
+                    <div class="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400 font-bold uppercase">Estado de Servicio</span>
+                            <span class="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full font-bold">Activo</span>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-white">Mantenimiento de Consolas</h4>
+                            <p class="text-xs text-slate-400">Limpieza interna profunda y reemplazo de pasta térmica.</p>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-3/4 rounded-full" id="diag-card-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="pt-1">
+                        <a id="hero-whatsapp-catalog-btn" href="https://wa.me/c/50664076254" target="_blank" class="w-full py-2.5 px-4 bg-emerald-600/10 border border-emerald-500/20 text-emerald-400 rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-emerald-600/20 transition-all">
+                            <span>📲</span> Ver Catálogo Oficial en WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 text-center pt-1">
+                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-500 font-bold block uppercase">Celulares</span>
+                            <span class="text-sm font-bold text-white">99% Éxito</span>
+                        </div>
+                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-500 font-bold block uppercase">PCs</span>
+                            <span class="text-sm font-bold text-white">Garantía</span>
+                        </div>
+                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-500 font-bold block uppercase">Consolas</span>
+                            <span class="text-sm font-bold text-white">Pro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: NUESTRO SERVICIO TÉCNICO -->
+    <section id="servicios" class="py-20 px-4 md:px-8 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyan-400" id="services-tag">¿Qué Reparamos?</span>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Especialistas en Soporte Técnico</h3>
+                <p class="text-slate-400 text-sm md:text-base">Ofrecemos diagnóstico honesto, repuestos de alta calidad y garantía por cada trabajo realizado en nuestro taller en Quitirrisí.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1: Celulares -->
+                <div class="p-8 bg-slate-950 border border-slate-800 rounded-3xl hover:border-cyan-500/50 transition-all duration-300 group flex flex-col justify-between" id="service-card-1">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-3xl group-hover:scale-105 transition-transform">
+                            📱
+                        </div>
+                        <h4 class="font-bold text-xl text-white">Reparación de Celulares</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Cambio de pantallas rotas, reemplazo de baterías de alta duración, pines de carga dañados, cámaras y solución a fallas de software en Android e iOS.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 border-t border-slate-800/60 pt-4 text-xs text-slate-400">
+                        <li class="flex items-center gap-2">⚡ Diagnóstico rápido</li>
+                        <li class="flex items-center gap-2">⚡ Repuestos originales u homologados</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 2: Computadoras -->
+                <div class="p-8 bg-slate-950 border border-slate-800 rounded-3xl hover:border-cyan-500/50 transition-all duration-300 group flex flex-col justify-between" id="service-card-2">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-3xl group-hover:scale-105 transition-transform">
+                            💻
+                        </div>
+                        <h4 class="font-bold text-xl text-white">Computadoras y Laptops</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Formateo e instalación de sistemas operativos, limpieza física de polvo, cambio de pasta térmica, mejora de velocidad con unidades de estado sólido (SSD) y memoria RAM.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 border-t border-slate-800/60 pt-4 text-xs text-slate-400">
+                        <li class="flex items-center gap-2">⚡ Recuperación de archivos perdidos</li>
+                        <li class="flex items-center gap-2">⚡ Eliminación de virus y malware</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 3: Consolas -->
+                <div class="p-8 bg-slate-950 border border-slate-800 rounded-3xl hover:border-cyan-500/50 transition-all duration-300 group flex flex-col justify-between" id="service-card-3">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-3xl group-hover:scale-105 transition-transform">
+                            🎮
+                        </div>
+                        <h4 class="font-bold text-xl text-white">Consolas de Videojuegos</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Mantenimiento profundo para PlayStation, Xbox y Nintendo Switch. Solución a problemas de sobrecalentamiento, fallos de lectura de discos y reparación de controles.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 border-t border-slate-800/60 pt-4 text-xs text-slate-400">
+                        <li class="flex items-center gap-2">⚡ Reemplazo de puertos HDMI</li>
+                        <li class="flex items-center gap-2">⚡ Reconstrucción y limpieza interna</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COTIZADOR EXPRESS DE REPARACIONES -->
+    <section id="reparaciones" class="py-20 px-4 md:px-8 bg-slate-950">
+        <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl relative">
+            <div class="absolute w-72 h-72 bg-blue-600/10 rounded-full blur-3xl top-10 left-10 -z-10"></div>
+            
+            <div class="text-center space-y-3 mb-8">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyan-400" id="quote-tag">Cotizador Express</span>
+                <h3 class="text-2xl md:text-3xl font-extrabold text-white">¿Qué equipo deseas reparar?</h3>
+                <p class="text-slate-400 text-sm">Elige las opciones de tu dispositivo para obtener un estimado aproximado.</p>
+            </div>
+
+            <!-- Formulario interactivo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <!-- Selector de dispositivo -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">1. Tipo de Dispositivo</label>
+                        <select id="device-type" onchange="updateDeviceDropdown()" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <option value="celular">📱 Celular / Smartphone</option>
+                            <option value="computadora">💻 Computadora / Laptop</option>
+                            <option value="consola">🎮 Consola de Videojuegos</option>
+                        </select>
+                    </div>
+
+                    <!-- Selector de falla común -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">2. Falla más común</label>
+                        <select id="problem-type" onchange="updateEstimation()" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <!-- Se actualiza por JS -->
+                        </select>
+                    </div>
+
+                    <!-- Input adicional para detalles -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Marca y Modelo (Opcional)</label>
+                        <input type="text" id="device-brand" placeholder="Ej. Samsung Galaxy S22, Dell Inspiron..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Estimación y Envío -->
+                <div class="p-6 bg-slate-950 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4">
+                    <div class="text-center md:text-left space-y-1">
+                        <span class="text-xs font-bold text-slate-500 uppercase block">Rango Estimado del Trabajo</span>
+                        <!-- El precio estimado se cambia dinámicamente -->
+                        <div class="text-3xl font-extrabold text-cyan-400" id="estimated-price">15,000 - 25,000 colones</div>
+                        <p class="text-xs text-slate-500 leading-normal">
+                            *Sujeto a diagnóstico físico gratuito en nuestro local. El costo final dependerá de la marca y costo exacto del repuesto.
+                        </p>
+                    </div>
+
+                    <button onclick="sendEstimateToWhatsApp()" id="quote-whatsapp-btn" class="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold py-3.5 px-6 rounded-xl transition-all shadow-md shadow-cyan-400/10 flex items-center justify-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp w-4 h-4" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 10.84.595 7.86 7.86 0 0 0 7.281-.052 7.214 7.214 0 0 0 4.29 1.157 7.23 7.23 0 0 0 2.22 3.655a7.16 7.16 0 0 0-.506 2.5 7.11 7.11 0 0 0 .546 2.659L.01 13.5l4.817-1.129a7.36 7.36 0 0 0 3.702.98h.007a7.25 7.25 0 0 0 3.072-.693 7.31 7.31 0 0 0 2.257-1.705 7.15 7.15 0 0 0 1.122-2.224 7.14 7.14 0 0 0 .427-2.316a7.23 7.23 0 0 0-.415-2.264M7.28 12.13h-.008a6.5 6.5 0 0 1-2.903-.7l-.208-.12-2.13.498.514-1.921-.137-.234a6.53 6.53 0 0 1-.78-2.331 6.53 6.53 0 0 1 .458-2.27 6.55 6.55 0 0 1 1.9-2.3 6.64 6.64 0 0 1 2.454-1.2 6.55 6.55 0 0 1 2.502.43 6.57 6.57 0 0 1 2.112 1.48c.556.556.965 1.252 1.182 2.012a6.7 6.7 0 0 1 .01 2.556 6.7 6.7 0 0 1-.95 2.17 6.7 6.7 0 0 1-1.745 1.8 6.62 6.62 0 0 1-2.052.95 6.6 6.6 0 0 1-1.637.202"/>
+                        </svg>
+                        Enviar Cotización por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIENDA VIRTUAL / CATÁLOGO DE VARIEDADES -->
+    <section id="catalogo" class="py-20 px-4 md:px-8 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- ====== PANEL DE ADMINISTRADOR GENERAL & PERSONALIZADOR DE TEXTO ====== -->
+            <div id="admin-panel-ui" class="hidden bg-slate-950 border border-red-500/30 rounded-3xl p-6 md:p-8 mb-12 relative overflow-hidden transition-all duration-300">
+                <div class="absolute w-40 h-40 bg-red-500/5 rounded-full blur-3xl -top-12 -right-12"></div>
+                
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">⚙️</span>
+                        <div>
+                            <h4 class="font-extrabold text-white text-lg">Panel de Control General y Personalización</h4>
+                            <span class="text-xs text-slate-400">Edita textos, datos de contacto, colores y gestiona productos</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="openSyncModal()" class="bg-emerald-600 hover:bg-emerald-500 text-slate-950 px-4 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-600/10">
+                            🟢 Sincronizar Catálogo
+                        </button>
+                        <button onclick="restoreDefaultSettings()" class="bg-slate-800 hover:bg-slate-700 text-red-400 px-4 py-2 rounded-xl text-xs font-bold transition-all border border-slate-700" title="Restaurar de fábrica">
+                            ↩️ Reset Web
+                        </button>
+                        <button onclick="logoutAdmin()" class="bg-red-500/15 hover:bg-red-500 text-red-400 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                            Cerrar Sesión Editor
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pestañas de la Consola de Administración -->
+                <div class="grid grid-cols-3 bg-slate-900 p-1.5 rounded-2xl border border-slate-800 text-xs font-bold mb-6 gap-1">
+                    <button id="admin-tab-products" onclick="switchAdminTab('products')" class="py-2.5 rounded-xl text-cyan-400 bg-slate-950 border border-slate-800/50 transition-all">🛍️ Inventario Web</button>
+                    <button id="admin-tab-texts" onclick="switchAdminTab('texts')" class="py-2.5 rounded-xl text-slate-400 transition-all">📝 Textos de Portada</button>
+                    <button id="admin-tab-contact" onclick="switchAdminTab('contact')" class="py-2.5 rounded-xl text-slate-400 transition-all">📞 Contacto y Horarios</button>
+                </div>
+
+                <!-- SUB-PANELES -->
+                <!-- 1. GESTOR DE PRODUCTOS -->
+                <div id="admin-sub-products" class="space-y-4">
+                    <form id="add-product-form" onsubmit="handleCreateProduct(event)" class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+                        <div class="md:col-span-12 mb-1"><h5 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Añadir producto manualmente:</h5></div>
+                        <div class="md:col-span-3">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Nombre del Artículo</label>
+                            <input type="text" id="p-name" required placeholder="Ej. Forro de silicona" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Categoría</label>
+                            <select id="p-category" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                                <option value="accesorios">📱 Accesorios Celular</option>
+                                <option value="audio">🎧 Audio y Sonido</option>
+                                <option value="gaming">🎮 Artículos Gamer</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Precio (₡ Colones)</label>
+                            <input type="number" id="p-price" required placeholder="Ej. 6500" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div class="md:col-span-1">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Emoji</label>
+                            <input type="text" id="p-emoji" required placeholder="🔌" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-center text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div class="md:col-span-3">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Descripción</label>
+                            <input type="text" id="p-desc" required placeholder="Ej. Gran resistencia y agarre suave." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div class="md:col-span-1">
+                            <button type="submit" class="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black h-[38px] rounded-xl text-sm transition-all flex items-center justify-center" title="Crear Producto">
+                                ➕
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 2. GESTOR DE TEXTOS -->
+                <div id="admin-sub-texts" class="hidden space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Nombre Comercial del Negocio</label>
+                            <input type="text" id="cfg-brand-full" oninput="updateSetting('brandName', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Nombre Corto / Siglas</label>
+                            <input type="text" id="cfg-brand-short" oninput="updateSetting('brandShort', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Título Llamativo de la Portada</label>
+                            <input type="text" id="cfg-hero-title" oninput="updateSetting('tagline', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Descripción de la Portada</label>
+                            <textarea id="cfg-hero-sub" oninput="updateSetting('subTagline', this.value)" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Etiqueta Superior de Portada</label>
+                            <input type="text" id="cfg-hero-badge" oninput="updateSetting('heroBadge', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <!-- Selector de color de acento general -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Color Temático de la Web</label>
+                            <div class="flex gap-2.5 pt-1" id="admin-theme-picker">
+                                <button onclick="updateSetting('accentColor', 'cyan')" class="w-8 h-8 rounded-full bg-cyan-400 border-2 border-white focus:outline-none" title="Cian"></button>
+                                <button onclick="updateSetting('accentColor', 'emerald')" class="w-8 h-8 rounded-full bg-emerald-400 border-2 border-slate-900 focus:outline-none" title="Esmeralda"></button>
+                                <button onclick="updateSetting('accentColor', 'amber')" class="w-8 h-8 rounded-full bg-amber-400 border-2 border-slate-900 focus:outline-none" title="Ámbar"></button>
+                                <button onclick="updateSetting('accentColor', 'rose')" class="w-8 h-8 rounded-full bg-rose-400 border-2 border-slate-900 focus:outline-none" title="Rosa"></button>
+                                <button onclick="updateSetting('accentColor', 'blue')" class="w-8 h-8 rounded-full bg-blue-500 border-2 border-slate-900 focus:outline-none" title="Azul"></button>
+                                <button onclick="updateSetting('accentColor', 'violet')" class="w-8 h-8 rounded-full bg-violet-400 border-2 border-slate-900 focus:outline-none" title="Violeta"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. GESTOR DE CONTACTO -->
+                <div id="admin-sub-contact" class="hidden space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">WhatsApp / Celular (Sin espacios)</label>
+                            <input type="text" id="cfg-phone" oninput="updateSetting('phone', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Correo Electrónico</label>
+                            <input type="email" id="cfg-email" oninput="updateSetting('email', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Enlace Google Maps</label>
+                            <input type="text" id="cfg-maps" oninput="updateSetting('mapsLink', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div class="md:col-span-3">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Dirección Física Exacta</label>
+                            <input type="text" id="cfg-address" oninput="updateSetting('address', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <!-- Horarios -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Horas Lunes a Viernes</label>
+                            <input type="text" id="cfg-hours-week" oninput="updateSetting('hoursWeek', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Horas Sábados</label>
+                            <input type="text" id="cfg-hours-sat" oninput="updateSetting('hoursSat', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5">Horas Domingos</label>
+                            <input type="text" id="cfg-hours-sun" oninput="updateSetting('hoursSun', this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cabecera de Catálogo -->
+            <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
+                <div class="space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-400" id="catalog-section-tag">Nuestros Productos</span>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-white">Variedades y Accesorios</h3>
+                    <p class="text-slate-400 text-sm">Artículos de calidad listos para retirar en tienda o con envío local.</p>
+                </div>
+
+                <!-- BOTÓN DE ENLACE AL CATÁLOGO DE WHATSAPP -->
+                <div class="w-full md:w-auto">
+                    <a id="catalog-whatsapp-button-link" href="https://wa.me/c/50664076254" target="_blank" class="w-full md:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-extrabold rounded-2xl text-sm transition-all shadow-lg shadow-emerald-600/10 transform hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-whatsapp w-5 h-5 text-slate-950" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 10.84.595 7.86 7.86 0 0 0 7.281-.052 7.214 7.214 0 0 0 4.29 1.157 7.23 7.23 0 0 0 2.22 3.655a7.16 7.16 0 0 0-.506 2.5 7.11 7.11 0 0 0 .546 2.659L.01 13.5l4.817-1.129a7.36 7.36 0 0 0 3.702.98h.007a7.25 7.25 0 0 0 3.072-.693 7.31 7.31 0 0 0 2.257-1.705 7.15 7.15 0 0 0 1.122-2.224 7.14 7.14 0 0 0 .427-2.316a7.23 7.23 0 0 0-.415-2.264M7.28 12.13h-.008a6.5 6.5 0 0 1-2.903-.7l-.208-.12-2.13.498.514-1.921-.137-.234a6.53 6.53 0 0 1-.78-2.331 6.53 6.53 0 0 1 .458-2.27 6.55 6.55 0 0 1 1.9-2.3 6.64 6.64 0 0 1 2.454-1.2 6.55 6.55 0 0 1 2.502.43 6.57 6.57 0 0 1 2.112 1.48c.556.556.965 1.252 1.182 2.012a6.7 6.7 0 0 1 .01 2.556 6.7 6.7 0 0 1-.95 2.17 6.7 6.7 0 0 1-1.745 1.8 6.62 6.62 0 0 1-2.052.95 6.6 6.6 0 0 1-1.637.202"/>
+                        </svg>
+                        Ver Catálogo Completo en WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Filtros del catálogo -->
+            <div class="flex flex-wrap gap-2 mb-8" id="catalog-filters-div">
+                <button onclick="filterProducts('all')" id="btn-cat-all" class="px-4 py-2 rounded-full text-xs font-bold bg-cyan-400 text-slate-950 transition-all border border-transparent">
+                    Todos los Artículos
+                </button>
+                <button onclick="filterProducts('accesorios')" id="btn-cat-accesorios" class="px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700">
+                    Accesorios Celular
+                </button>
+                <button onclick="filterProducts('audio')" id="btn-cat-audio" class="px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700">
+                    Audio y Sonido
+                </button>
+                <button onclick="filterProducts('gaming')" id="btn-cat-gaming" class="px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700">
+                    Artículos Gamer
+                </button>
+            </div>
+
+            <!-- Grilla de Productos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
+                <!-- Se inyecta dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CARRITO DE COMPRAS FLOTANTE -->
+    <div id="shopping-cart-panel" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-slate-950 border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col justify-between">
+        <div class="p-6 overflow-y-auto flex-1">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🛒</span>
+                    <h4 class="font-bold text-white text-lg">Tu Pedido AyC</h4>
+                </div>
+                <button onclick="toggleCart()" class="p-2 hover:bg-slate-900 rounded-lg text-slate-400 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Lista de items en el carrito -->
+            <div id="cart-items" class="space-y-4">
+                <p class="text-sm text-slate-500 text-center py-12">El carrito de compras está vacío.</p>
+            </div>
+        </div>
+
+        <!-- Resumen, Métodos de Pago y Checkout -->
+        <div class="p-6 border-t border-slate-800 bg-slate-900 space-y-4">
+            <!-- Métodos de pago aceptados en el Carrito -->
+            <div class="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 space-y-2">
+                <span class="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider block">Métodos de Pago Aceptados:</span>
+                <div class="flex items-center gap-2 text-[11px] text-slate-300 font-medium">
+                    <div id="badge-sinpe" class="flex items-center gap-1 px-2 py-1 bg-cyan-950/40 text-cyan-400 rounded-lg border border-cyan-800/30">
+                        📱 SINPE Móvil
+                    </div>
+                    <div class="flex items-center gap-1 px-2 py-1 bg-blue-950/40 text-blue-400 rounded-lg border border-blue-800/30">
+                        🏦 Transf.
+                    </div>
+                    <div id="badge-paypal" class="flex items-center gap-1 px-2 py-1 bg-indigo-950/40 text-indigo-400 rounded-lg border border-indigo-800/30">
+                        💳 PayPal
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <span class="text-sm text-slate-400 font-bold uppercase">Subtotal estimado:</span>
+                <span class="text-2xl font-extrabold text-cyan-400" id="cart-total">₡0</span>
+            </div>
+            
+            <p class="text-[11px] text-slate-500 leading-normal">
+                Al confirmar tu pedido, te redirigiremos a nuestro WhatsApp comercial para coordinar el retiro en Quitirrisí o los detalles del envío.
+            </p>
+
+            <button onclick="sendOrderToWhatsApp()" id="checkout-btn" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-slate-950 font-extrabold py-3.5 px-6 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 text-sm">
+                Confirmar Pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- SECCIÓN DE UBICACIÓN Y CONTACTO -->
+    <section id="contacto" class="py-20 px-4 md:px-8 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyan-400" id="contact-tag">¿Dónde Estamos?</span>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Visítanos en Barrio San Martín</h3>
+                <p class="text-slate-400 leading-relaxed">
+                    Estamos ubicados en el hermoso cantón de **Mora, en Quitirrisí, Barrio San Martín**. Puedes traer tu consola, computadora o teléfono para una revisión física inmediata.
+                </p>
+
+                <div class="space-y-4 pt-4 border-t border-slate-800/60">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-lg text-cyan-400 shrink-0" id="info-icon-1">
+                            📍
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Dirección Exacta</h4>
+                            <p id="contact-address-text" class="text-xs text-slate-400">Quitirrisí de Mora, Barrio San Martín. San José, Costa Rica.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-lg text-cyan-400 shrink-0" id="info-icon-2">
+                            ✉️
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Correo Electrónico</h4>
+                            <a id="contact-email-text" href="mailto:serviciotecnicoyvariedadesayc@gmail.com" class="text-xs text-cyan-400 hover:underline">serviciotecnicoyvariedadesayc@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-lg text-cyan-400 shrink-0" id="info-icon-3">
+                            💬
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Soporte Express</h4>
+                            <p class="text-xs text-slate-400">Escríbenos directamente o llámanos para resolver dudas rápidas de forma directa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horarios, Enlace de Mapa & Métodos de Pago -->
+            <div class="p-1 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/5" id="schedule-border-decor">
+                <div class="bg-slate-900 rounded-[22px] p-8 space-y-6">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span>🇨🇷</span> Horario de Atención
+                    </h4>
+                    
+                    <div class="space-y-3 text-sm border-b border-slate-800 pb-4">
+                        <div class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-400">Lunes a Viernes</span>
+                            <span id="hours-week-text" class="font-semibold text-white">8:00 AM - 9:00 PM</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-400">Sábado</span>
+                            <span id="hours-sat-text" class="font-semibold text-white">11:00 AM - 9:00 PM</span>
+                        </div>
+                        <div class="flex justify-between text-cyan-400 pb-2" id="hours-sun-wrap">
+                            <span>Domingo</span>
+                            <span id="hours-sun-text" class="font-semibold">9:00 AM - 8:00 PM</span>
+                        </div>
+                    </div>
+
+                    <!-- Métodos de pago aceptados destacados en contacto -->
+                    <div class="space-y-2">
+                        <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">Formas de Pago Autorizadas:</span>
+                        <div class="grid grid-cols-1 gap-2 pt-1 text-xs text-slate-300">
+                            <div class="flex items-center gap-2 px-3 py-2 bg-slate-950 rounded-xl border border-slate-800">
+                                <span class="text-base">📱</span> 
+                                <div>
+                                    <span class="font-bold block">SINPE Móvil</span>
+                                    <span class="text-[10px] text-slate-500">Pago rápido y seguro al celular</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 px-3 py-2 bg-slate-950 rounded-xl border border-slate-800">
+                                <span class="text-base">🏦</span> 
+                                <div>
+                                    <span class="font-bold block">Transferencia Bancaria</span>
+                                    <span class="text-[10px] text-slate-500">Banco Nacional / BCR / BAC</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 px-3 py-2 bg-slate-950 rounded-xl border border-slate-800">
+                                <span class="text-base">💳</span> 
+                                <div>
+                                    <span class="font-bold block">PayPal</span>
+                                    <span class="text-[10px] text-slate-500">Pagos internacionales y tarjetas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enlace de Google Maps Oficial del negocio -->
+                    <a id="maps-link-button" href="https://maps.app.goo.gl/MoFRtMzkG4r5waSi6?g_st=ic" target="_blank" class="block w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-slate-950 text-center py-3.5 rounded-xl text-xs font-extrabold transition-all shadow-md">
+                        Ver Ubicación en Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 px-4 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <div id="footer-brand-icon" class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-extrabold text-sm transition-all duration-300">
+                    AyC
+                </div>
+                <span id="footer-brand-text" class="text-sm font-extrabold text-white tracking-wide">Servicio Técnico y Variedades AyC</span>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs">
+                <p id="footer-copy-text" class="text-slate-500">&copy; 2026 Servicio Técnico y Variedades AyC. Mora, Quitirrisí.</p>
+                <!-- BOTÓN DISCRETO PARA EL INGRESO DE ADMINISTRADOR -->
+                <button onclick="promptAdminLogin()" class="text-slate-700 hover:text-cyan-400 transition-all font-semibold flex items-center gap-1">
+                    🔑 Panel de Control
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NOTIFICACIÓN TIPO TOAST -->
+    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-800 text-white py-3.5 px-6 rounded-2xl shadow-2xl z-50 flex items-center gap-3 border border-slate-700">
+        <span class="text-lg" id="toast-icon">🛒</span>
+        <span id="toast-message" class="text-xs md:text-sm font-semibold">¡Producto agregado al pedido!</span>
+    </div>
+
+    <!-- MODAL PERSONALIZADO DE AUTENTICACIÓN -->
+    <div id="admin-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 w-full max-w-sm space-y-4 shadow-2xl">
+            <div class="text-center space-y-1">
+                <span class="text-3xl block">🔒</span>
+                <h4 class="font-extrabold text-white text-lg">Acceso Administrador</h4>
+                <p class="text-xs text-slate-400">Ingresa la contraseña del sistema AyC</p>
+            </div>
+            <div>
+                <input type="password" id="admin-pass-input" placeholder="Contraseña de administración" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-center text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+            </div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button onclick="closeAdminModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-400 font-bold py-2.5 rounded-xl text-xs transition-all">Cancelar</button>
+                <button onclick="tryAdminLogin()" class="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black py-2.5 rounded-xl text-xs transition-all" id="admin-submit-btn">Ingresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE SINCRONIZACIÓN INTELIGENTE (WHATSAPP SYNC DIALOG) -->
+    <div id="sync-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 w-full max-w-lg space-y-6 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <h4 class="font-extrabold text-white text-base md:text-lg flex items-center gap-2">
+                    <span>🟢</span> Lector y Sincronizador de Catálogo
+                </h4>
+                <button onclick="closeSyncModal()" class="text-slate-400 hover:text-white">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Pestañas de Opción -->
+            <div class="grid grid-cols-2 bg-slate-950 p-1.5 rounded-xl text-xs font-bold border border-slate-800">
+                <button id="tab-auto" onclick="switchSyncTab('auto')" class="py-2.5 rounded-lg text-cyan-400 bg-slate-900 border border-slate-800 transition-all">Sincronización API</button>
+                <button id="tab-manual" onclick="switchSyncTab('manual')" class="py-2.5 rounded-lg text-slate-400 transition-all">Importador por Texto</button>
+            </div>
+
+            <!-- CONTENIDO 1: AUTO SYNC -->
+            <div id="sync-content-auto" class="space-y-4">
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Escanea directamente tu número de WhatsApp Business para buscar nuevos artículos agregados recientemente de forma virtual.
+                </p>
+                
+                <div id="sync-loading-state" class="hidden p-6 bg-slate-950 border border-slate-800 rounded-2xl flex-col items-center justify-center text-center space-y-4">
+                    <div class="w-12 h-12 rounded-full border-4 border-emerald-500 border-t-transparent animate-spin" id="sync-spinner-icon"></div>
+                    <div>
+                        <h5 class="text-sm font-extrabold text-white" id="sync-status-step">Conectando con WhatsApp Business...</h5>
+                        <p class="text-[11px] text-slate-500 mt-1" id="sync-status-sub">Iniciando protocolo seguro...</p>
+                    </div>
+                </div>
+
+                <div id="sync-ready-state" class="space-y-3">
+                    <div class="flex items-center gap-3 p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs">
+                        <span class="text-2xl">⚡</span>
+                        <div>
+                            <span class="font-bold block text-white">Canal de Sincronización Establecido</span>
+                            <span class="text-slate-500 text-[10px]">Listo para traer las últimas variedades de Quitirrisí.</span>
+                        </div>
+                    </div>
+                    <button onclick="startAutoSync()" id="sync-action-btn" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black py-3.5 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2">
+                        Iniciar Escaneo e Importar Artículos
+                    </button>
+                </div>
+            </div>
+
+            <!-- CONTENIDO 2: MANUAL TEXT IMPORTER -->
+            <div id="sync-content-manual" class="space-y-4 hidden">
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    ¡Copia el listado de productos de tu WhatsApp Business y pégalo abajo! El sistema lo leerá, descifrará los nombres, precios en colones y los añadirá al catálogo web al instante.
+                </p>
+                
+                <textarea id="manual-import-text" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none" placeholder="Pega aquí. Ejemplo:&#10;Forro de celular a ₡5500&#10;Audífonos Gamer - 15000 colones&#10;Cargador USB 6000"></textarea>
+
+                <button onclick="parseAndImportText()" id="manual-import-btn" class="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                    Procesar e Importar al Catálogo Web
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE INTERACTIVIDAD, BASE DE DATOS Y ADMINISTRACIÓN -->
+    <script>
+        // Credencial por defecto del sistema
+        const ADMIN_PASSWORD_HASH = "admin123"; 
+
+        // Estado del Administrador activo (sesión en memoria)
+        let isAdminLoggedIn = false;
+
+        // VALORES POR DEFECTO DEL DISEÑO (Para restaurar de fábrica si lo desean)
+        const defaultSettings = {
+            brandName: "Servicio Técnico y Variedades AyC",
+            brandShort: "AyC",
+            tagline: "Reparación experta de Tecnología y venta de artículos",
+            subTagline: "Revivimos tus celulares, computadoras y consolas favoritas. Además, explora nuestro catálogo de variedades y tecnología directo hasta tu hogar.",
+            phone: "50664076254",
+            email: "serviciotecnicoyvariedadesayc@gmail.com",
+            address: "Quitirrisí de Mora, Barrio San Martín. San José, Costa Rica.",
+            mapsLink: "https://maps.app.goo.gl/MoFRtMzkG4r5waSi6?g_st=ic",
+            accentColor: "cyan", // Opciones: cyan, emerald, amber, rose, blue, violet
+            heroBadge: "📍 Quitirrisí de Mora, Barrio San Martín",
+            hoursWeek: "8:00 AM - 9:00 PM",
+            hoursSat: "11:00 AM - 9:00 PM",
+            hoursSun: "9:00 AM - 8:00 PM"
+        };
+
+        // Objeto activo de configuraciones del sitio
+        let siteSettings = {};
+
+        // Base de datos de cotizaciones estimadas
+        const failureDatabase = {
+            celular: [
+                { text: "Cambio de Pantalla / Vidrio", range: "₡18,000 - ₡45,000" },
+                { text: "Cambio de Batería Dañada", range: "₡12,000 - ₡25,000" },
+                { text: "Pin de Carga / Falla al cargar", range: "₡10,000 - ₡18,000" },
+                { text: "Software / Cuenta bloqueada", range: "₡8,000 - ₡15,000" }
+            ],
+            computadora: [
+                { text: "Limpieza profunda y Pasta Térmica", range: "₡12,000 - ₡20,000" },
+                { text: "Instalación de Sistema Operativo (Formateo)", range: "₡15,000 - ₡25,000" },
+                { text: "Instalación de Unidad SSD (Súper Velocidad)", range: "₡25,000 - ₡55,000" },
+                { text: "Reparación de Bisagras o Carcasa", range: "₡15,000 - ₡30,000" }
+            ],
+            consola: [
+                { text: "Limpieza Interna Completa (Sin ruido)", range: "₡15,000 - ₡25,000" },
+                { text: "Cambio de puerto de video HDMI", range: "₡25,000 - ₡40,000" },
+                { text: "Reparación Joystick de Control (Drift)", range: "₡8,000 - ₡15,000" },
+                { text: "Fallo de Lectura / Disco duro dañado", range: "₡20,000 - ₡45,000" }
+            ]
+        };
+
+        // Inventario de productos inicial
+        const initialProducts = [
+            { id: 1, name: "Cargador Carga Rápida 20W", category: "accesorios", price: 6500, emoji: "🔌", desc: "Compatible con iPhone y Android de alta velocidad." },
+            { id: 2, name: "Audífonos Bluetooth Pro X10", category: "audio", price: 11500, emoji: "🎧", desc: "Excelente sonido estéreo y estuche recargable." },
+            { id: 3, name: "Cable USB-C Reforzado (2m)", category: "accesorios", price: 3500, emoji: "➰", desc: "Material trenzado ultra resistente de alta duración." },
+            { id: 4, name: "Mouse Gamer RGB Inalámbrico", category: "gaming", price: 8900, emoji: "🖱️", desc: "Iluminación dinámica con batería de larga duración." }
+        ];
+
+        // Productos entrantes del catálogo de WhatsApp (Sincronización automática)
+        const incomingWhatsAppProducts = [
+            { name: "Protector de Pantalla Cerámico", category: "accesorios", price: 3000, emoji: "📱", desc: "Privacidad y alta resistencia contra caídas fuertes." },
+            { name: "Parlante Portátil Bluetooth RGB", category: "audio", price: 15000, emoji: "🔊", desc: "Resistente a salpicaduras con bajos súper potentes." },
+            { name: "Control inalámbrico multiplataforma", category: "gaming", price: 18500, emoji: "🎮", desc: "Compatible con Nintendo Switch, PC y celulares." },
+            { name: "Estuche Protector Antigolpes Celular", category: "accesorios", price: 5000, emoji: "🛡️", desc: "Esquinas reforzadas con protección de cámara." }
+        ];
+
+        let productsDatabase = [];
+        let cart = [];
+
+        // Inicializar almacenamiento de contenidos y estilos
+        function initSiteSettings() {
+            const savedSettings = localStorage.getItem('ayc_site_settings_v1');
+            if (savedSettings) {
+                siteSettings = JSON.parse(savedSettings);
+            } else {
+                siteSettings = { ...defaultSettings };
+                saveSettingsToStorage();
+            }
+            applyAllSettingsDOM();
+        }
+
+        function saveSettingsToStorage() {
+            localStorage.setItem('ayc_site_settings_v1', JSON.stringify(siteSettings));
+        }
+
+        // Aplicar configuraciones de forma dinámica a todos los textos de la web
+        function applyAllSettingsDOM() {
+            // Nombre de la marca
+            document.getElementById('nav-brand-full').innerText = siteSettings.brandName;
+            document.getElementById('nav-brand-sub').innerText = `${siteSettings.brandShort} • QUITIRRISÍ`;
+            document.getElementById('nav-brand-icon').innerText = siteSettings.brandShort;
+            document.getElementById('footer-brand-icon').innerText = siteSettings.brandShort;
+            document.getElementById('footer-brand-text').innerText = siteSettings.brandName;
+            document.getElementById('footer-copy-text').innerHTML = `&copy; 2026 ${siteSettings.brandName}. Mora, Quitirrisí.`;
+            document.getElementById('site-browser-title').innerText = `${siteSettings.brandName} | Quitirrisí de Mora`;
+
+            // Portada / Hero
+            document.getElementById('hero-badge').innerText = siteSettings.heroBadge;
+            document.getElementById('hero-subtitle').innerText = siteSettings.subTagline;
+            document.getElementById('hero-title').innerHTML = siteSettings.tagline.replace('Tecnología', `<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-${siteSettings.accentColor}-400" id="hero-title-gradient">Tecnología</span>`);
+
+            // Contacto
+            document.getElementById('contact-address-text').innerText = siteSettings.address;
+            document.getElementById('contact-email-text').innerText = siteSettings.email;
+            document.getElementById('contact-email-text').href = `mailto:${siteSettings.email}`;
+            
+            // Enlaces de WhatsApp
+            document.getElementById('nav-whatsapp-link').href = `https://wa.me/${siteSettings.phone}?text=Hola%20AyC,%20quisiera%20hacer%20una%20consulta.`;
+            document.getElementById('hero-whatsapp-catalog-btn').href = `https://wa.me/c/${siteSettings.phone}`;
+            document.getElementById('catalog-whatsapp-button-link').href = `https://wa.me/c/${siteSettings.phone}`;
+            document.getElementById('maps-link-button').href = siteSettings.mapsLink;
+
+            // Horarios
+            document.getElementById('hours-week-text').innerText = siteSettings.hoursWeek;
+            document.getElementById('hours-sat-text').innerText = siteSettings.hoursSat;
+            document.getElementById('hours-sun-text').innerText = siteSettings.hoursSun;
+
+            // Rellenar los campos del panel de administración
+            document.getElementById('cfg-brand-full').value = siteSettings.brandName;
+            document.getElementById('cfg-brand-short').value = siteSettings.brandShort;
+            document.getElementById('cfg-hero-title').value = siteSettings.tagline;
+            document.getElementById('cfg-hero-sub').value = siteSettings.subTagline;
+            document.getElementById('cfg-hero-badge').value = siteSettings.heroBadge;
+            document.getElementById('cfg-phone').value = siteSettings.phone;
+            document.getElementById('cfg-email').value = siteSettings.email;
+            document.getElementById('cfg-maps').value = siteSettings.mapsLink;
+            document.getElementById('cfg-address').value = siteSettings.address;
+            document.getElementById('cfg-hours-week').value = siteSettings.hoursWeek;
+            document.getElementById('cfg-hours-sat').value = siteSettings.hoursSat;
+            document.getElementById('cfg-hours-sun').value = siteSettings.hoursSun;
+
+            // Aplicar colores de acento
+            applyColorThemes();
+        }
+
+        // Actualizar una configuración específica y guardarla
+        function updateSetting(key, value) {
+            siteSettings[key] = value;
+            saveSettingsToStorage();
+            applyAllSettingsDOM();
+        }
+
+        // Restablecer todas las configuraciones a los valores de fábrica
+        function restoreDefaultSettings() {
+            if (confirm("¿Estás seguro de que deseas restablecer todos los textos, colores y horarios al diseño original?")) {
+                siteSettings = { ...defaultSettings };
+                productsDatabase = [...initialProducts];
+                saveSettingsToStorage();
+                saveInventoryToStorage();
+                applyAllSettingsDOM();
+                renderProducts();
+                showToast("🔄 Configuración del sitio restablecida", "⚙️");
+            }
+        }
+
+        // SISTEMA DE PALETA DE COLORES DINÁMICA
+        function applyColorThemes() {
+            const accent = siteSettings.accentColor;
+            
+            // Mapas de temas de colores Tailwind CSS
+            const themeClasses = {
+                cyan: { text: "text-cyan-400", bg: "bg-cyan-400", border: "border-cyan-500", hover: "hover:bg-cyan-300", ring: "focus:ring-cyan-500", bgLow: "bg-cyan-950/40" },
+                emerald: { text: "text-emerald-400", bg: "bg-emerald-400", border: "border-emerald-500", hover: "hover:bg-emerald-300", ring: "focus:ring-emerald-500", bgLow: "bg-emerald-950/40" },
+                amber: { text: "text-amber-400", bg: "bg-amber-400", border: "border-amber-500", hover: "hover:bg-amber-300", ring: "focus:ring-amber-500", bgLow: "bg-amber-950/40" },
+                rose: { text: "text-rose-400", bg: "bg-rose-400", border: "border-rose-500", hover: "hover:bg-rose-300", ring: "focus:ring-rose-500", bgLow: "bg-rose-950/40" },
+                blue: { text: "text-blue-400", bg: "bg-blue-400", border: "border-blue-500", hover: "hover:bg-blue-300", ring: "focus:ring-blue-500", bgLow: "bg-blue-950/40" },
+                violet: { text: "text-violet-400", bg: "bg-violet-400", border: "border-violet-500", hover: "hover:bg-violet-300", ring: "focus:ring-violet-500", bgLow: "bg-violet-950/40" }
+            };
+
+            const activeTheme = themeClasses[accent] || themeClasses.cyan;
+
+            // Aplicar color a los elementos globales
+            // 1. Icono del carrito
+            const cartSvg = document.getElementById('cart-icon-svg');
+            cartSvg.className.baseVal = `w-5 h-5 ${activeTheme.text}`;
+
+            // 2. Insignia de Portada
+            const heroBadge = document.getElementById('hero-badge');
+            heroBadge.className = `inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-bold bg-slate-800 ${activeTheme.text} border border-slate-700`;
+
+            // 3. Botón de Cotización Primaria
+            const quoteBtn = document.getElementById('quote-whatsapp-btn');
+            quoteBtn.className = `w-full ${activeTheme.bg} ${activeTheme.hover} text-slate-950 font-extrabold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm`;
+
+            // 4. Secciones de Categorías y Filtros (Filtro Activo)
+            const activeFilter = document.querySelector('#catalog-filters-div .bg-cyan-400, #catalog-filters-div .bg-emerald-400, #catalog-filters-div .bg-amber-400, #catalog-filters-div .bg-rose-400, #catalog-filters-div .bg-blue-400, #catalog-filters-div .bg-violet-400');
+            if (activeFilter) {
+                // Removemos clases viejas de color de fondo
+                activeFilter.classList.remove('bg-cyan-400', 'bg-emerald-400', 'bg-amber-400', 'bg-rose-400', 'bg-blue-400', 'bg-violet-400');
+                activeFilter.classList.add(activeTheme.bg);
+            }
+
+            // 5. Etiquetas de la sección
+            document.getElementById('catalog-section-tag').className = `text-xs font-bold uppercase tracking-widest ${activeTheme.text}`;
+            document.getElementById('quote-tag').className = `text-xs font-bold uppercase tracking-widest ${activeTheme.text}`;
+            document.getElementById('services-tag').className = `text-xs font-bold uppercase tracking-widest ${activeTheme.text}`;
+            document.getElementById('contact-tag').className = `text-xs font-bold uppercase tracking-widest ${activeTheme.text}`;
+
+            // 6. Tarjetas de servicios
+            document.getElementById('diag-card-tag').className = `text-xs font-bold ${activeTheme.text} uppercase tracking-wider ${activeTheme.bgLow} px-2.5 py-1 rounded`;
+            
+            // 7. Iconos de Ubicación y Contacto
+            document.getElementById('info-icon-1').className = `w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-lg ${activeTheme.text} shrink-0`;
+            document.getElementById('info-icon-2').className = `w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-lg ${activeTheme.text} shrink-0`;
+            document.getElementById('info-icon-3').className = `w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-lg ${activeTheme.text} shrink-0`;
+            document.getElementById('contact-email-text').className = `text-xs ${activeTheme.text} hover:underline`;
+
+            // 8. Botones del footer e indicadores
+            document.getElementById('hours-sun-wrap').className = `flex justify-between ${activeTheme.text} pb-2`;
+
+            // 9. Badges de pago del checkout
+            document.getElementById('badge-sinpe').className = `flex items-center gap-1 px-2 py-1 ${activeTheme.bgLow} ${activeTheme.text} rounded-lg border border-slate-800`;
+            document.getElementById('cart-total').className = `text-2xl font-extrabold ${activeTheme.text}`;
+            document.getElementById('estimated-price').className = `text-3xl font-extrabold ${activeTheme.text}`;
+
+            // 10. Actualizar el color de los anillos de foco de selección en los inputs de admin
+            const themePickerButtons = document.querySelectorAll('#admin-theme-picker button');
+            themePickerButtons.forEach((btn, index) => {
+                const colors = ['cyan', 'emerald', 'amber', 'rose', 'blue', 'violet'];
+                if (colors[index] === accent) {
+                    btn.classList.remove('border-slate-900');
+                    btn.classList.add('border-white', 'ring-2', 'ring-offset-2', 'ring-slate-900');
+                } else {
+                    btn.classList.remove('border-white', 'ring-2', 'ring-offset-2', 'ring-slate-900');
+                    btn.classList.add('border-slate-900');
+                }
+            });
+        }
+
+        // CONTROL DE MODALES E INVENTARIOS
+        function initInventory() {
+            const savedInventory = localStorage.getItem('ayc_products_inventory_v1');
+            if (savedInventory) {
+                productsDatabase = JSON.parse(savedInventory);
+            } else {
+                productsDatabase = [...initialProducts];
+                saveInventoryToStorage();
+            }
+        }
+
+        function saveInventoryToStorage() {
+            localStorage.setItem('ayc_products_inventory_v1', JSON.stringify(productsDatabase));
+        }
+
+        // CONTROL DE MODAL DE INICIO DE SESIÓN
+        function promptAdminLogin() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+            document.getElementById('admin-pass-input').value = "";
+            document.getElementById('admin-pass-input').focus();
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function tryAdminLogin() {
+            const enteredPass = document.getElementById('admin-pass-input').value;
+            if (enteredPass === ADMIN_PASSWORD_HASH) {
+                isAdminLoggedIn = true;
+                document.getElementById('admin-panel-ui').classList.remove('hidden');
+                document.getElementById('admin-indicator').classList.remove('hidden');
+                document.getElementById('admin-indicator').classList.add('flex');
+                closeAdminModal();
+                showToast("🔓 Sesión de Editor Iniciada", "⚙️");
+                renderProducts();
+            } else {
+                showToast("❌ Contraseña incorrecta", "🔒");
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-panel-ui').classList.add('hidden');
+            document.getElementById('admin-indicator').classList.remove('flex');
+            document.getElementById('admin-indicator').classList.add('hidden');
+            showToast("🔒 Sesión de Editor Cerrada", "⚙️");
+            renderProducts();
+        }
+
+        // NAVEGACIÓN INTERNA DEL PANEL DE ADMIN
+        function switchAdminTab(tab) {
+            const btnProducts = document.getElementById('admin-tab-products');
+            const btnTexts = document.getElementById('admin-tab-texts');
+            const btnContact = document.getElementById('admin-tab-contact');
+
+            const subProducts = document.getElementById('admin-sub-products');
+            const subTexts = document.getElementById('admin-sub-texts');
+            const subContact = document.getElementById('admin-sub-contact');
+
+            // Restablecer estilos de botones de pestañas
+            const accent = siteSettings.accentColor || 'cyan';
+            const textClass = `text-${accent}-400`;
+
+            btnProducts.className = "py-2.5 rounded-xl text-slate-400 transition-all";
+            btnTexts.className = "py-2.5 rounded-xl text-slate-400 transition-all";
+            btnContact.className = "py-2.5 rounded-xl text-slate-400 transition-all";
+
+            subProducts.classList.add('hidden');
+            subTexts.classList.add('hidden');
+            subContact.classList.add('hidden');
+
+            if (tab === 'products') {
+                btnProducts.className = `py-2.5 rounded-xl ${textClass} bg-slate-900 border border-slate-800/50 transition-all`;
+                subProducts.classList.remove('hidden');
+            } else if (tab === 'texts') {
+                btnTexts.className = `py-2.5 rounded-xl ${textClass} bg-slate-900 border border-slate-800/50 transition-all`;
+                subTexts.classList.remove('hidden');
+            } else if (tab === 'contact') {
+                btnContact.className = `py-2.5 rounded-xl ${textClass} bg-slate-900 border border-slate-800/50 transition-all`;
+                subContact.classList.remove('hidden');
+            }
+        }
+
+        // CONTROL DE MODAL DE SINCRONIZACIÓN DE WHATSAPP
+        function openSyncModal() {
+            if (!isAdminLoggedIn) return;
+            document.getElementById('sync-modal').classList.remove('hidden');
+            document.getElementById('sync-loading-state').classList.add('hidden');
+            document.getElementById('sync-ready-state').classList.remove('hidden');
+            document.getElementById('manual-import-text').value = "";
+        }
+
+        function closeSyncModal() {
+            document.getElementById('sync-modal').classList.add('hidden');
+        }
+
+        function switchSyncTab(tab) {
+            const btnAuto = document.getElementById('tab-auto');
+            const btnManual = document.getElementById('tab-manual');
+            const contentAuto = document.getElementById('sync-content-auto');
+            const contentManual = document.getElementById('sync-content-manual');
+
+            const accent = siteSettings.accentColor || 'cyan';
+
+            if (tab === 'auto') {
+                btnAuto.className = `py-2.5 rounded-lg text-${accent}-400 bg-slate-900 border border-slate-800 transition-all`;
+                btnManual.className = "py-2.5 rounded-lg text-slate-400 transition-all";
+                contentAuto.classList.remove('hidden');
+                contentManual.classList.add('hidden');
+            } else {
+                btnManual.className = `py-2.5 rounded-lg text-${accent}-400 bg-slate-900 border border-slate-800 transition-all`;
+                btnAuto.className = "py-2.5 rounded-lg text-slate-400 transition-all";
+                contentAuto.classList.add('hidden');
+                contentManual.classList.remove('hidden');
+            }
+        }
+
+        function startAutoSync() {
+            const readyState = document.getElementById('sync-ready-state');
+            const loadingState = document.getElementById('sync-loading-state');
+            const stepText = document.getElementById('sync-status-step');
+            const subText = document.getElementById('sync-status-sub');
+
+            readyState.classList.add('hidden');
+            loadingState.classList.remove('hidden');
+
+            const steps = [
+                { main: "Conectando al canal de WhatsApp Business...", sub: `Handshake seguro TLS con +${siteSettings.phone}` },
+                { main: "Escaneando catálogo activo de AyC...", sub: "Importando descripciones, nombres e imágenes..." },
+                { main: "Sincronizando variedades en colones...", sub: "Formateando precios costarricenses..." },
+                { main: "Finalizando importación...", sub: "Inyectando inventario al catálogo virtual" }
+            ];
+
+            let currentStep = 0;
+            const stepInterval = setInterval(() => {
+                if (currentStep < steps.length) {
+                    stepText.innerText = steps[currentStep].main;
+                    subText.innerText = steps[currentStep].sub;
+                    currentStep++;
+                } else {
+                    clearInterval(stepInterval);
+                    completeAutoSync();
+                }
+            }, 1000);
+        }
+
+        function completeAutoSync() {
+            let addedCount = 0;
+            incomingWhatsAppProducts.forEach(incoming => {
+                const exists = productsDatabase.some(p => p.name.toLowerCase() === incoming.name.toLowerCase());
+                if (!exists) {
+                    const newId = productsDatabase.length > 0 ? Math.max(...productsDatabase.map(p => p.id)) + 1 : 1;
+                    productsDatabase.push({
+                        id: newId,
+                        ...incoming
+                    });
+                    addedCount++;
+                }
+            });
+
+            saveInventoryToStorage();
+            renderProducts();
+            closeSyncModal();
+            
+            if (addedCount > 0) {
+                showToast(`🔄 ¡Sincronizados ${addedCount} nuevos artículos!`, "🟢");
+            } else {
+                showToast("✨ Tu catálogo web ya se encuentra actualizado", "🟢");
+            }
+        }
+
+        function parseAndImportText() {
+            const rawText = document.getElementById('manual-import-text').value.trim();
+            if (!rawText) {
+                showToast("Por favor pega texto del catálogo primero", "⚠️");
+                return;
+            }
+
+            const lines = rawText.split('\n');
+            let importedCount = 0;
+
+            lines.forEach(line => {
+                if (!line.trim()) return;
+
+                const priceMatch = line.match(/(?:\u20A1|c|\$)?\s*(\d{3,6})(?:\s*colones|\s*col)?/i) || line.match(/(\d{3,6})/);
+                let price = 5000;
+                if (priceMatch) {
+                    price = parseFloat(priceMatch[1]);
+                }
+
+                let cleanName = line
+                    .replace(/(?:\u20A1|c|\$)?\s*\d{3,6}(?:\s*colones|\s*col)?/gi, '')
+                    .replace(/[-–—]/g, '')
+                    .trim();
+
+                if (cleanName.length < 3) return;
+
+                let category = "accesorios";
+                let emoji = "📦";
+
+                const lowerName = cleanName.toLowerCase();
+                if (lowerName.includes("audifono") || lowerName.includes("parlante") || lowerName.includes("sonido") || lowerName.includes("bocina") || lowerName.includes("bluetooth") || lowerName.includes("pro")) {
+                    category = "audio";
+                    emoji = "🎧";
+                } else if (lowerName.includes("mouse") || lowerName.includes("teclado") || lowerName.includes("gamer") || lowerName.includes("rgb") || lowerName.includes("juego") || lowerName.includes("consola")) {
+                    category = "gaming";
+                    emoji = "🎮";
+                } else if (lowerName.includes("cargador") || lowerName.includes("cable") || lowerName.includes("forro") || lowerName.includes("case") || lowerName.includes("soporte") || lowerName.includes("pantalla")) {
+                    category = "accesorios";
+                    emoji = "🔌";
+                }
+
+                const newId = productsDatabase.length > 0 ? Math.max(...productsDatabase.map(p => p.id)) + 1 : 1;
+                productsDatabase.push({
+                    id: newId,
+                    name: cleanName,
+                    category: category,
+                    price: price,
+                    emoji: emoji,
+                    desc: "Sincronizado directamente desde WhatsApp Business."
+                });
+
+                importedCount++;
+            });
+
+            if (importedCount > 0) {
+                saveInventoryToStorage();
+                renderProducts();
+                closeSyncModal();
+                showToast(`📋 ¡Importados con éxito ${importedCount} artículos!`, "✅");
+            } else {
+                showToast("No pudimos descifrar productos del texto", "⚠️");
+            }
+        }
+
+        // AGREGAR UN PRODUCTO MANUALMENTE
+        function handleCreateProduct(event) {
+            event.preventDefault();
+            if(!isAdminLoggedIn) return;
+
+            const name = document.getElementById('p-name').value;
+            const category = document.getElementById('p-category').value;
+            const price = parseFloat(document.getElementById('p-price').value);
+            const emoji = document.getElementById('p-emoji').value || "📦";
+            const desc = document.getElementById('p-desc').value;
+
+            const newId = productsDatabase.length > 0 ? Math.max(...productsDatabase.map(p => p.id)) + 1 : 1;
+
+            const newProduct = {
+                id: newId,
+                name: name,
+                category: category,
+                price: price,
+                emoji: emoji,
+                desc: desc
+            };
+
+            productsDatabase.push(newProduct);
+            saveInventoryToStorage();
+            renderProducts();
+            
+            document.getElementById('add-product-form').reset();
+            showToast(`¡"${name}" agregado al catálogo!`, "🛍️");
+        }
+
+        // ELIMINAR UN PRODUCTO
+        function deleteProduct(id) {
+            if(!isAdminLoggedIn) return;
+            
+            const product = productsDatabase.find(p => p.id === id);
+            if (!product) return;
+
+            productsDatabase = productsDatabase.filter(p => p.id !== id);
+            saveInventoryToStorage();
+            renderProducts();
+            showToast(`"${product.name}" eliminado del catálogo`, "🗑️");
+        }
+
+        // Inicializar el Cotizador Express
+        function initCotizador() {
+            updateDeviceDropdown();
+        }
+
+        function updateDeviceDropdown() {
+            const device = document.getElementById('device-type').value;
+            const problemSelect = document.getElementById('problem-type');
+            
+            problemSelect.innerHTML = "";
+            failureDatabase[device].forEach((fail, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.innerText = fail.text;
+                problemSelect.appendChild(opt);
+            });
+            updateEstimation();
+        }
+
+        function updateEstimation() {
+            const device = document.getElementById('device-type').value;
+            const index = document.getElementById('problem-type').value;
+            
+            if(failureDatabase[device] && failureDatabase[device][index]) {
+                document.getElementById('estimated-price').innerText = failureDatabase[device][index].range;
+            }
+        }
+
+        // Enviar cotización por WhatsApp
+        function sendEstimateToWhatsApp() {
+            const device = document.getElementById('device-type').options[document.getElementById('device-type').selectedIndex].text;
+            const problem = document.getElementById('problem-type').options[document.getElementById('problem-type').selectedIndex].text;
+            const brand = document.getElementById('device-brand').value || "No especificado";
+            const price = document.getElementById('estimated-price').innerText;
+
+            const message = `¡Hola Servicio Técnico AyC! Me gustaría coordinar un diagnóstico para mi equipo:\n\n` +
+                            `• *Dispositivo:* ${device}\n` +
+                            `• *Falla:* ${problem}\n` +
+                            `• *Marca/Modelo:* ${brand}\n` +
+                            `• *Rango Estimado:* ${price}\n\n` +
+                            `💳 *Métodos de pago aceptados:* SINPE Móvil, PayPal y Transferencias Bancarias.\n\n` +
+                            `¿Cuándo podría llevarlo a su taller en Barrio San Martín de Quitirrisí?`;
+
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/${siteSettings.phone}?text=${encoded}`, '_blank');
+        }
+
+        // Renderizar el catálogo de la tienda de variedades
+        function renderProducts(filterCategory = 'all') {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = "";
+
+            const filtered = productsDatabase.filter(p => filterCategory === 'all' || p.category === filterCategory);
+            const accent = siteSettings.accentColor || 'cyan';
+
+            if (filtered.length === 0) {
+                grid.className = "block w-full text-center py-12 px-6 bg-slate-950 border border-slate-800 rounded-3xl";
+                grid.innerHTML = `
+                    <div class="max-w-md mx-auto space-y-4">
+                        <span class="text-4xl block">✨</span>
+                        <h4 class="font-extrabold text-white text-lg md:text-xl">Nuestro catálogo virtual estará listo muy pronto</h4>
+                        <p class="text-xs md:text-sm text-slate-400 leading-relaxed">
+                            Actualmente estamos cargando nuestros accesorios de celular, sonido y artículos gaming. 
+                            ¡Pero no te preocupes! Ofrecemos venta de artículos todos los días de forma directa.
+                        </p>
+                        <a href="https://wa.me/c/${siteSettings.phone}" target="_blank" class="inline-flex bg-gradient-to-r from-blue-600 to-${accent}-500 text-slate-950 font-bold py-2.5 px-6 rounded-xl text-xs tracking-wider transition-all shadow-md">
+                            Preguntar Stock por WhatsApp
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6";
+
+            filtered.forEach(product => {
+                const adminOptionsHTML = isAdminLoggedIn ? `
+                    <button onclick="deleteProduct(${product.id})" class="absolute top-2 right-2 bg-red-600 hover:bg-red-500 text-white p-2 rounded-xl transition-colors shadow-md border border-red-500 z-10" title="Eliminar de la tienda">
+                        🗑️
+                    </button>
+                ` : '';
+
+                grid.innerHTML += `
+                    <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 hover:border-${accent}-500/40 transition-all flex flex-col justify-between group relative">
+                        ${adminOptionsHTML}
+                        <div class="space-y-3">
+                            <div class="w-full aspect-square rounded-xl bg-slate-900 flex items-center justify-center text-5xl relative overflow-hidden">
+                                ${product.emoji}
+                            </div>
+                            <span class="text-[10px] font-bold tracking-widest text-${accent}-400 uppercase bg-${accent}-95/40 px-2 py-0.5 rounded inline-block">${product.category}</span>
+                            <h4 class="font-bold text-white text-base leading-tight">${product.name}</h4>
+                            <p class="text-xs text-slate-400 leading-normal">${product.desc}</p>
+                        </div>
+
+                        <div class="pt-4 mt-4 border-t border-slate-900 flex items-center justify-between">
+                            <span class="text-lg font-extrabold text-white">₡${product.price.toLocaleString()}</span>
+                            <button onclick="addToCart(${product.id})" class="p-2.5 bg-slate-900 hover:bg-${accent}-400 hover:text-slate-950 rounded-xl transition-all text-${accent}-400 border border-slate-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filtros del catálogo
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('#catalogo button');
+            const accent = siteSettings.accentColor || 'cyan';
+
+            buttons.forEach(btn => {
+                btn.className = "px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700";
+            });
+
+            const activeBtn = document.getElementById(`btn-cat-${category}`);
+            if(activeBtn) {
+                activeBtn.className = `px-4 py-2 rounded-full text-xs font-bold bg-${accent}-400 text-slate-950 transition-all border border-transparent`;
+            }
+            renderProducts(category);
+        }
+
+        // Carrito de Compras: Agregar Item
+        function addToCart(id) {
+            const product = productsDatabase.find(p => p.id === id);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`¡"${product.name}" agregado al pedido!`, "🛒");
+        }
+
+        // Remover item del carrito
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartUI();
+        }
+
+        // Actualizar visualización del carrito
+        function updateCartUI() {
+            const countBadge = document.getElementById('cart-count');
+            const container = document.getElementById('cart-items');
+            const totalText = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            if (totalItems > 0) {
+                countBadge.innerText = totalItems;
+                countBadge.classList.remove('hidden');
+            } else {
+                countBadge.className = "absolute -top-1.5 -right-1.5 bg-red-500 text-white font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-900 hidden";
+            }
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-sm text-slate-500 text-center py-12">El carrito de compras está vacío.</p>`;
+                totalText.innerText = "₡0";
+                return;
+            }
+
+            container.innerHTML = "";
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                container.innerHTML += `
+                    <div class="flex items-center justify-between gap-4 p-3 bg-slate-900 border border-slate-800 rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">${item.emoji}</span>
+                            <div>
+                                <h5 class="font-bold text-white text-xs md:text-sm">${item.name}</h5>
+                                <span class="text-slate-400 text-xs">₡${item.price.toLocaleString()} x ${item.quantity}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-cyan-400">₡${itemTotal.toLocaleString()}</span>
+                            <button onclick="removeFromCart(${item.id})" class="p-1 hover:bg-red-500/20 rounded text-red-400 transition-colors">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            totalText.innerText = `₡${subtotal.toLocaleString()}`;
+        }
+
+        // Abrir / Cerrar Carrito de compras lateral
+        function toggleCart() {
+            const panel = document.getElementById('shopping-cart-panel');
+            panel.classList.toggle('translate-x-full');
+        }
+
+        // Enviar pedido final de tienda a WhatsApp
+        function sendOrderToWhatsApp() {
+            if (cart.length === 0) {
+                showToast("El carrito está vacío. Agrega variedades primero.", "⚠️");
+                return;
+            }
+
+            let message = `🛒 *Nuevo Pedido - ${siteSettings.brandName}*\n`;
+            message += `Ubicado en ${siteSettings.address}\n`;
+            message += `-------------------------------------------\n\n`;
+
+            let subtotal = 0;
+            cart.forEach(item => {
+                const totalItem = item.price * item.quantity;
+                subtotal += totalItem;
+                message += `• *${item.name}*\n  Cant: ${item.quantity} x ₡${item.price.toLocaleString()} = _₡${totalItem.toLocaleString()}_\n\n`;
+            });
+
+            message += `-------------------------------------------\n`;
+            message += `💰 *Subtotal Estimado:* ₡${subtotal.toLocaleString()}\n\n`;
+            message += `💳 *Método de Pago Preferido:* (Aceptamos SINPE Móvil, PayPal y Transferencias Bancarias)\n\n`;
+            message += `Por favor, confírmenme si tienen disponibilidad de estos artículos para retirarlos.`;
+
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/${siteSettings.phone}?text=${encoded}`, '_blank');
+        }
+
+        // Mostrar aviso Toast amigable
+        function showToast(message, emoji = "🛒") {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            const toastIcon = document.getElementById('toast-icon');
+            
+            toastIcon.innerText = emoji;
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Inicialización del sistema
+        window.onload = function () {
+            initSiteSettings();
+            initInventory();
+            initCotizador();
+            renderProducts();
+        }
+    </script>
+</body>
+</html>
